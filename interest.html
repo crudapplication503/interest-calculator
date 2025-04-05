@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interest Calculator</title>
+<link rel="stylesheet" href="interest1.css">
+  </head>
+<body>
+<div id="content">
+  <h2>Interest Calculator</h2>
+  Enter Amount:
+  <input type="text" id="pm1" placeholder="Enter Amount"><br><br>
+  Interest Rate per 100:
+  <input type="text" id="ir1" placeholder="Interest"><br><br>
+  From:
+  <input type="date" id="from1"><br><br>
+  To:
+  <input type="date" id="to1"><br><br>
+  <button onclick="calculate()" style="background-color:pink;font-weight:bold;">Calculate</button>
+    <button onclick="resetForm()" style="background-color:pink;font-weight:bold;">Reset</button>
+</div>
+  <table id="result">
+    <tr>
+      <th>Principal Amount</th>
+      <th>Interest Rate per 100</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Time</th>
+      <th>Interest</th>
+      <th>Total Amount</th>
+    </tr>
+    <tr>
+      <td id="pm"></td>
+      <td id="ir"></td>
+      <td id="from"></td>
+      <td id="to"></td>
+      <td id="time"></td>
+      <td id="in"></td>
+      <td id="tam"></td>
+    </tr>
+  </table>
+
+<footer style="position: fixed; bottom: 0; width: 100%; background-color: #f1f1f1; text-align: center; padding: 10px; font-family: Arial;">
+  Designed by AKHILESH CHAKALI
+</footer>
+<script src="interest2.js"></script>
+  </body>
+</html>

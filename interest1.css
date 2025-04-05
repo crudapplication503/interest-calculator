@@ -1,0 +1,31 @@
+
+    body {
+      font-family: Times New Roman;
+      text-align: center;
+      margin: 50px;
+    }
+    table {
+      
+      width: 50%;
+      margin: auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+    th {
+      background-color: skyblue;
+    }
+#content {
+    border: 2px dashed blue;
+    padding: 15px;
+    margin: 20px auto;
+    width: 400px;
+    background-color: #f0f8ff;
+  }
+
+#result{
+display:none;
+}
+  
