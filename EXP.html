@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interest Calculator</title>
+<style>
+
+    body {
+      font-family: Times New Roman;
+      text-align: center;
+      margin: 50px;
+    }
+    table {
+      
+      width: 50%;
+      margin: auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+    th {
+      background-color: skyblue;
+    }
+#content {
+    border: 2px dashed blue;
+    padding: 15px;
+    margin: 20px auto;
+    width: 400px;
+    background-color: #f0f8ff;
+  }
+  button{
+    cursor: pointer;
+  }
+
+#result{
+display:none;
+}
+  
+
+</style>
+  </head>
+<body>
+<img src="akhil.png" width=300 height=300/>
+<div id="content">
+  <h2>Interest Calculator</h2>
+  Enter Amount:
+  <input type="text" id="pm1" placeholder="Enter Amount"><br><br>
+  Interest Rate per 100:
+  <input type="text" id="ir1" placeholder="Interest"><br><br>
+  From:
+  <input type="date" id="from1"><br><br>
+  To:
+  <input type="date" id="to1"><br><br>
+  <button onclick="calculate()" style="background-color:pink;font-weight:bold;">Calculate</button>
+    <button onclick="resetForm()" style="background-color:pink;font-weight:bold;">Reset</button>
+</div>
+  <table id="result">
+    <tr>
+      <th>Principal Amount</th>
+      <th>Interest Rate per 100</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Time</th>
+      <th>Interest</th>
+      <th>Total Amount</th>
+    </tr>
+    <tr>
+      <td id="pm"></td>
+      <td id="ir"></td>
+      <td id="from"></td>
+      <td id="to"></td>
+      <td id="time"></td>
+      <td id="in"></td>
+      <td id="tam"></td>
+    </tr>
+  </table>
+
+<footer style="position: fixed; bottom: 0; width: 100%; background-color: #f1f1f1; text-align: center; padding: 10px; font-family: Arial;">
+  Designed by AKHILESH CHAKALI
+</footer>
+<script>
+
+    function getMonthsAndDaysDiff(FROM, TO) {
+      const start = new Date(FROM);
+      const end = new Date(TO);
+
+      if (end < start) {
+        [start, end] = [end, start];
+      }
+
+      let years = end.getFullYear() - start.getFullYear();
+      let months = end.getMonth() - start.getMonth();
+      let days = end.getDate() - start.getDate();
+      
+
+      if (days < 0) {
+        months -= 1;
+        const prevMonth = new Date(end.getFullYear(), end.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+      
+
+      months += years * 12;
+
+      return { months, days};
+    }
+
+    function calculate() {
+      var PM = parseFloat(document.getElementById("pm1").value);
+      var IR = parseFloat(document.getElementById("ir1").value);
+      var FROM = document.getElementById("from1").value;
+      var TO = document.getElementById("to1").value;
+
+      const diff = getMonthsAndDaysDiff(FROM, TO);
+      const fm = diff.months;
+      const fd = diff.days;
+      const y=Math.floor(fm/12);
+      const m=fm%12;    
+
+      const hun = PM / 100;
+      const rm = hun * IR;             
+      const rd = rm / 30;                
+
+      const im = fm * rm;                
+      const id = fd * rd;                
+
+      const fi = im + id;               
+      const tam1 = PM + fi;         
+      const td= ` ${y} y ${m} m ${fd} d`;  
+      document.getElementById("pm").innerText = PM
+      document.getElementById("ir").innerText = IR
+      document.getElementById("from").innerText = FROM;
+      document.getElementById("to").innerText = TO;
+     document.getElementById("time").innerText = td;   
+      document.getElementById("in").innerText = fi.toFixed(2);
+      document.getElementById("tam").innerText = tam1.toFixed(2);
+
+
+document.getElementById("result").style.display = "table";
+
+
+ }
+
+function resetForm() {
+   
+      document.getElementById("pm1").value = "";
+      document.getElementById("ir1").value = "";
+      document.getElementById("from1").value = "";
+      document.getElementById("to1").value = "";
+      document.getElementById("result").style.display = "none";
+
+
+}
+
+</script>
+  </body>
+</html>
